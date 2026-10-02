@@ -95,7 +95,14 @@ jobs:
               android:accessibilityFeedbackType="feedbackGeneric"
               android:canRetrieveWindowContent="false"
               android:notificationTimeout="100"
-              android:description="يعيدك إلى تطبيق الواحة إذا لم تُنهِ روتينك." />
+              android:description="@string/desc" />
+          WAHA_EOF
+          mkdir -p $(dirname app/src/main/res/values/strings.xml)
+          cat > app/src/main/res/values/strings.xml <<'WAHA_EOF'
+          <?xml version="1.0" encoding="utf-8"?>
+          <resources>
+              <string name="desc">يعيدك إلى تطبيق الواحة إذا لم تنهِ روتينك.</string>
+          </resources>
           WAHA_EOF
           mkdir -p $(dirname app/src/main/java/com/waha/app/MainActivity.kt)
           cat > app/src/main/java/com/waha/app/MainActivity.kt <<'WAHA_EOF'
